@@ -26,6 +26,8 @@ class ResponseObject(object):
                 value = self.resp_obj.json()
             elif key == "cookies":
                 value = self.resp_obj.cookies.get_dict()
+            elif key == "text":
+                value = self.content.decode('gb2312')
             else:
                 value = getattr(self.resp_obj, key)
 

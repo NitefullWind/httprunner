@@ -121,7 +121,7 @@ class HttpSession(requests.Session):
                     req_resp_dict["response"]["json"] = resp_obj.json()
             except ValueError:
                 # only record at most 512 text charactors
-                resp_text = resp_obj.text
+                resp_text = resp_obj.content.decode('gb2312')
                 req_resp_dict["response"]["text"] = omit_long_data(resp_text)
 
         # log response details in debug mode
